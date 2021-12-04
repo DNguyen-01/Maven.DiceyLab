@@ -41,13 +41,19 @@ public class Simulation {
         System.out.println("***");
         System.out.println("Simulation of " + numDie + " dice tossed for " + numberOfSim + " times.");
         System.out.println("***\n");
-        for(int i = bins.getStartValue();i <= bins.getEndValue(); i++){
+        for(int i = bins.getStartValue(); i <= bins.getEndValue(); i++){
             double percent = ((double)bins.getBin(i)/(double) numberOfSim);
             StringBuilder sb = new StringBuilder();
             for(int j = 0; j < percent*100; j++){
                 sb.append("*");
             }
-            System.out.println(i + " : " + bins.getBin(i) + " : " + percent + " " + sb.toString());
+            String section1 = String.format("%3d", i);
+            String section2 = String.format("%7d", bins.getBin(i));
+            String section3 = String.format("%1.2f", percent);
+
+
+
+            System.out.println(section1 + " : " + section2 + " : " + section3 + " " + sb.toString());
         }
 
 
